@@ -1,5 +1,4 @@
 import Recipe from "./Recipe.js";
-import Workstation from "./Workstation.js";
 
 export default class Item {
     /**

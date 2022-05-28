@@ -1,7 +1,6 @@
 import Item from "./class/Item.js";
 import * as Items from "./class/Items.js";
 import Recipe from "./class/Recipe.js";
-import Workstation from "./class/Workstation.js";
 
 function renderTree() {
     Object.keys(Items).forEach(item => {
@@ -103,13 +102,6 @@ function generateSubtree(item) {
             let totalTimeHTML = document.createElement("b");
             totalTimeHTML.innerText = `Total time: ${totalRecipe.recipeTime}s`;
             document.getElementById("totalrecipecosts").appendChild(totalTimeHTML);
-
-            let totalTimeParallel = 0;
-            totalRecipe.recipeTimeBreakDown.forEach(depthMap => totalTimeParallel += Math.max(...depthMap.values()));
-
-            let totalTimeParallelHTML = document.createElement("b");
-            totalTimeParallelHTML.innerText = `Total time parallel: ${totalTimeParallel}s`;
-            document.getElementById("totalrecipecosts").appendChild(totalTimeParallelHTML);
 
             totalRecipe.recipeTimeBreakDown.forEach((depthMap, depth) => {
                 depthMap.forEach((time, workstation) => {
