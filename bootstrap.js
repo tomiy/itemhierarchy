@@ -49,19 +49,23 @@ function clearSubtree() {
  */
 function generateSubtree(item) {
     // Compounds
+    let compoundsHTML = document.createElement("header");
+    compoundsHTML.innerText = `Compounds`;
+    document.getElementById("compounds").appendChild(compoundsHTML);
+
     item.compounds.forEach(compound => {
         let button = createSubtreeButton(compound);
         document.getElementById("compounds").appendChild(button);
     });
 
     // Item label
-    let itemHTML = document.createElement("p");
+    let itemHTML = document.createElement("header");
     itemHTML.innerText = `Item: ${item.label}`;
     document.getElementById("recipeinfo").appendChild(itemHTML);
 
     item.recipes.forEach((recipe, index) => {
         let lineBreak = document.createElement("hr");
-        let recipeIndex = document.createElement("p");
+        let recipeIndex = document.createElement("header");
         recipeIndex.innerText = `Recipe ${index + 1}`;
 
         // Components
@@ -74,34 +78,28 @@ function generateSubtree(item) {
             document.getElementById("components").appendChild(button);
         });
 
-        // Recipe Info
-        let timeHTML = document.createElement("p");
-        let yieldHTML = document.createElement("p");
-        timeHTML.innerText = `Time: ${recipe.recipeTime}s`;
-        yieldHTML.innerHTML = `Yield: x${recipe.recipeYield}`;
-
-        document.getElementById("recipeinfo").appendChild(lineBreak.cloneNode(true));
-        document.getElementById("recipeinfo").appendChild(recipeIndex.cloneNode(true));
-        document.getElementById("recipeinfo").appendChild(timeHTML);
-        document.getElementById("recipeinfo").appendChild(yieldHTML);
-
         // Total Recipe Costs
         /** @type {Recipe[]} */
         let totalRecipeList = recipe.getTotalRecipes();
 
-        console.log(totalRecipeList);
-
         totalRecipeList.forEach((totalRecipe, totalIndex) => {
             let lineBreak = document.createElement("hr");
-            let recipeIndex = document.createElement("p");
+            let recipeIndex = document.createElement("header");
             recipeIndex.innerText = `Recipe ${index + 1} - ${totalIndex + 1}`;
 
             document.getElementById("totalrecipecosts").appendChild(lineBreak.cloneNode(true));
             document.getElementById("totalrecipecosts").appendChild(recipeIndex.cloneNode(true));
 
             let totalTimeHTML = document.createElement("b");
-            totalTimeHTML.innerText = `Total time: ${totalRecipe.recipeTime}s`;
+            totalTimeHTML.innerText = `Total time (pessimistic): ${totalRecipe.recipeTime}s`;
             document.getElementById("totalrecipecosts").appendChild(totalTimeHTML);
+
+            let totalTimeParallel = 0;
+            totalRecipe.recipeTimeBreakDown.forEach(depthMap => totalTimeParallel += Math.max(...depthMap.values()));
+
+            let totalTimeParallelHTML = document.createElement("b");
+            totalTimeParallelHTML.innerText = `Total time (optimistic): ${totalTimeParallel}s`;
+            document.getElementById("totalrecipecosts").appendChild(totalTimeParallelHTML);
 
             totalRecipe.recipeTimeBreakDown.forEach((depthMap, depth) => {
                 depthMap.forEach((time, workstation) => {

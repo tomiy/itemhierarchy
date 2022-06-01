@@ -19,7 +19,7 @@ export default class Recipe {
     }
 
     /** @type {Item} */
-    addComponent(item, quantity) {
+    addComponent(item, quantity = 1) {
         let matchingComponent = this.components.find(other => other.item.label == item.label);
         if (matchingComponent) {
             matchingComponent.quantity += quantity;

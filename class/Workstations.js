@@ -1,15 +1,21 @@
 import Workstation from "./Workstation.js";
 
-export const INVENTORY = new Workstation("Inventory");
-export const ENVIRONMENT = new Workstation("Environment");
+export const ALCHEMY_TABLE = new Workstation("Alchemy Table");
+export const ANVIL = new Workstation("Anvil");
 export const BLOOD_PRESS = new Workstation("Blood Press");
-export const SAWMILL = new Workstation("Sawmill");
+export const ENVIRONMENT = new Workstation("Environment");
+export const FURNACE = new Workstation("Furnace");
+export const GEM_CUTTING_TABLE = new Workstation("Gem Cutting Table");
 export const GRINDER = new Workstation("Grinder");
-export const FORGE = new Workstation("Forge");
-export const TANNERY = new Workstation("Tannery");
+export const INVENTORY = new Workstation("Inventory");
+export const JEWELCRAFTING_TABLE = new Workstation("Jewelcrafting Table");
 export const LOOM = new Workstation("Loom");
 export const PAPER_PRESS = new Workstation("Paper Press");
-export const GEM_CUTTING_TABLE = new Workstation("Gem Cutting Table");
+export const SAWMILL = new Workstation("Sawmill");
 export const SIMPLE_WORKBENCH = new Workstation("Simple Workbench");
 export const SMITHY = new Workstation("Smithy");
-export const ALCHEMY_TABLE = new Workstation("Alchemy Table");
+export const TAILORING_BENCH = new Workstation("Tailoring Bench");
+export const TANNERY = new Workstation("Tannery");
+export const TOMB = new Workstation("Tomb");
+export const VERMIN_NEST = new Workstation("Vermin Nest");
+export const WOODWORKING_BENCH = new Workstation("Woodworking Bench");

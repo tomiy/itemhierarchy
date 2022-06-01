@@ -18,47 +18,78 @@
         }
         
         #container {
-            display: flex;
-            height: 75%;
+            background: #789;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 0.1fr 1.4fr 1.5fr;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas: "Sidebar Item-info Item-info" "Sidebar Components Total-Recipe-Costs" "Sidebar Compounds Total-Recipe-Costs";
         }
         
-        .row {
-            display: grid;
-            grid-template-columns: 20% 20% 20% 20% 20%;
-            grid-template-rows: 20px 100%;
-            row-gap: 15px;
-            width: 100%;
+        #items {
+            grid-area: Sidebar;
+        }
+        
+        #recipeinfo {
+            grid-area: Item-info;
+            justify-content: center;
+        }
+        
+        #components,
+        #compounds,
+        #totalrecipecosts {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        
+        #components {
+            grid-area: Components;
+        }
+        
+        #compounds {
+            grid-area: Compounds;
+        }
+        
+        #totalrecipecosts {
+            grid-area: Total-Recipe-Costs;
         }
         
         section[id] {
             display: flex;
             flex-direction: column;
-            overflow-y: scroll;
+            overflow-y: auto;
         }
         
         input,
         button {
             margin: 2px;
+            padding: 5px;
+        }
+        
+        button {
+            background: #456;
+            color: #bcd;
+        }
+        
+        header {
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
-    <input type="text" id="search" />
     <div id="container">
-        <section class="row">
-            <p>Items</p>
-            <p>Components</p>
-            <p>Compounds</p>
-            <p>Recipe Info</p>
-            <p>Total Recipe Costs</p>
-            <section id="items"></section>
-            <section id="components"></section>
-            <section id="compounds"></section>
-            <section id="recipeinfo"></section>
-            <section id="totalrecipecosts"></section>
-        </section>
+        <section id="items"><input type="text" id="search" placeholder="Search for an item..." /></section>
+        <section id="components"></section>
+        <section id="compounds"></section>
+        <section id="recipeinfo"></section>
+        <section id="totalrecipecosts"></section>
     </div>
+
     <script type="module">
         import Loader from "./bootstrap.js"; Loader.renderTree(); Loader.initSearch();
     </script>
