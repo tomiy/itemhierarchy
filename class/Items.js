@@ -302,7 +302,7 @@ GOLD_INGOT.addRecipe(new Recipe(Workstations.FURNACE).addComponent(SULPHUR, 8).a
 GOLDEN_CASTLE_KEY.addRecipe(new Recipe(Workstations.ANVIL).addComponent(PRIMAL_BLOOD_ESSENCE, 12).addComponent(GOLD_INGOT, 24).addComponent(SPECTRAL_DUST, 40).addComponent(DARK_SILVER_INGOT, 80).addComponent(REINFORCED_PLANK, 80).setRecipeTime(900));
 GRAVE_DUST.addRecipe(new Recipe(Workstations.GRINDER).addComponent(BONE, 100).setRecipeTime(60));
 GRAVEDIGGER_RING.addRecipe(new Recipe(Workstations.JEWELCRAFTING_TABLE).addComponent(GRAVE_DUST, 8).addComponent(MOURNING_LILY, 40).setRecipeTime(20));
-GREATER_BLOOD_ESSENCE.addRecipe(new Recipe(Workstations.BLOOD_PRESS).addComponent(BLOOD_ESSENCE, 250).setRecipeTime(180));
+GREATER_BLOOD_ESSENCE.addRecipe(new Recipe(Workstations.BLOOD_PRESS).addComponent(BLOOD_ESSENCE, 200).setRecipeTime(180));
 GREATER_BLOOD_ESSENCE.addRecipe(new Recipe(Workstations.BLOOD_PRESS).addComponent(UNSULLIED_HEART, 4).setRecipeTime(180));
 HOLLOWFANG_BOOTS.addRecipe(new Recipe(Workstations.TAILORING_BENCH).addComponent(COTTON_YARN, 8).addComponent(LEATHER, 8).addComponent(WOOL_THREAD, 8).setRecipeTime(60));
 HOLLOWFANG_CHESTGUARD.addRecipe(new Recipe(Workstations.TAILORING_BENCH).addComponent(COTTON_YARN, 8).addComponent(LEATHER, 8).addComponent(WOOL_THREAD, 8).setRecipeTime(60));
