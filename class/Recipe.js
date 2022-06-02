@@ -1,3 +1,4 @@
+import Item from "./Item.js";
 import QuantityOfItem from "./QuantityOfItem.js";
 import Workstation from "./Workstation.js";
 
@@ -86,7 +87,7 @@ export default class Recipe {
 
         // Recipes
         this.components.forEach(component => {
-            if (component.item.recipes.length) {
+            if ((component.item.lootableMask & Item.FARMED) == 0 && component.item.recipes.length) {
                 let newRecipesToAdd = new Array();
 
                 let newRecipe = currentRecipe;
@@ -115,7 +116,7 @@ export default class Recipe {
 
         // Components
         this.components.forEach(component => {
-            if (!component.item.recipes.length) {
+            if (!component.item.recipes.length || (component.item.lootableMask & Item.FARMED) > 0) {
                 if (!currentLevelRecipes.some(currentLevelRecipe => currentLevelRecipe.equals(currentRecipe))) {
                     currentLevelRecipes.push(currentRecipe);
                 }

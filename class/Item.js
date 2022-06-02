@@ -5,8 +5,9 @@ export default class Item {
      * 
      * @param {string} label 
      */
-    constructor(label) {
+    constructor(label, lootableMask = Item.CRAFTED) {
         this.label = label;
+        this.lootableMask = lootableMask;
         /** @type {Recipe[]} */
         this.recipes = new Array();
         /** @type {Item[]} */
@@ -24,3 +25,7 @@ export default class Item {
         return this;
     }
 }
+
+Item.CRAFTED = 0b001;
+Item.LOOTED = 0b010;
+Item.FARMED = 0b100;
